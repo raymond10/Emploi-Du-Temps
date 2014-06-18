@@ -25,8 +25,8 @@ angular.module('emploiDuTempsApp')
             },
             server: {
                 protocol: 'https',
-                host: 'cas.utt.fr',
-                port: '443',
+                host: 'cas.univ.fr',
+                port: '444',
                 context: '/cas'
             }
         });
