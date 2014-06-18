@@ -70,7 +70,7 @@
         </authenticationPlugin>
     </extension>
 
-    <!-- chainage de l'authentification : on garde une authentification de type BASIC pour les accès particuliers (RSS/cmis/contentAutomation)-->
+    <!-- chainage de l'authentification : on garde une authentification de type BASIC pour les accès particuliers (RSS/cmis/contentAutomation) -->
     <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService"
                point="chain">
         <authenticationChain>
@@ -83,7 +83,7 @@
         </authenticationChain>
     </extension>
 
-    <!-- chaînage d'authentification spécifique pour Nuxeo Drive-->
+    <!-- chaînage d'authentification spécifique pour Nuxeo Drive -->
     <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService"
                point="specificChains">
         <specificAuthenticationChain name="Automation">
