@@ -36,7 +36,7 @@ angular.module('emploiDuTempsApp')
 
         $scope.freqSeances = [
             {sean: 'Toues les semaines', value: 'TS'},
-            {sean: '1 semaine sur 2', value: '1S3'}
+            {sean: '1 semaine sur 2', value: '1S2'}
         ];
         $scope.selectedFreqSeance = $scope.freqSeances[0];
 

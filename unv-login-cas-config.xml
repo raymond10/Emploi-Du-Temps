@@ -18,17 +18,17 @@
                 <!-- si utilisation du mode proxy -->
                 <parameter name="proxyKey">proxy</parameter>
 
-                <parameter name="appURL">http://nuxeo-dev.utt.fr/nuxeo/nxstartup.faces</parameter>
+                <parameter name="appURL">http://server.univ.fr/nuxeo/nxstartup.faces</parameter>
                 <!-- URL de login du serveur CAS -->
-                <parameter name="serviceLoginURL">https://cas.utt.fr/cas/login</parameter>
+                <parameter name="serviceLoginURL">https://cas.univ.fr/cas/login</parameter>
                 <!-- URL de validation du ticket du serveur CAS -->
-                <parameter name="serviceValidateURL">https://cas.utt.fr/cas/serviceValidate</parameter>
+                <parameter name="serviceValidateURL">https://cas.univ.fr/cas/serviceValidate</parameter>
                 <!-- Si utilisation de CAS en mode proxy -->
-                <parameter name="proxyValidateURL">https://cas.utt.fr/cas/proxyValidate</parameter>
+                <parameter name="proxyValidateURL">https://cas.univ.fr/cas/proxyValidate</parameter>
                 <!-- variable contenant le nom du service dans l'URL -->
                 <parameter name="serviceKey">service</parameter>
                 <!-- URL de logout de CAS -->
-                <parameter name="logoutURL">https://cas.utt.fr/cas/logout?service=http://nuxeo-dev.utt.fr/nuxeo/
+                <parameter name="logoutURL">https://cas.univ.fr/cas/logout?service=http://server.univ.fr/nuxeo/
                 </parameter>
             </parameters>
         </authenticationPlugin>
@@ -43,23 +43,23 @@
                 <!-- si utilisation du mode proxy -->
                 <parameter name="proxyKey">ticket</parameter>
 
-                <parameter name="appURL">https://nuxeo-dev.utt.fr/nuxeo/site/automation</parameter>
+                <parameter name="appURL">https://server.univ.fr/nuxeo/site/automation</parameter>
 
                 <!-- URL de login du serveur CAS -->
-                <parameter name="serviceLoginURL">https://cas.utt.fr/cas/login</parameter>
+                <parameter name="serviceLoginURL">https://cas.univ.fr/cas/login</parameter>
 
                 <!-- URL de validation du ticket du serveur CAS -->
-                <parameter name="serviceValidateURL">https://cas.utt.fr/cas/serviceValidate</parameter>
+                <parameter name="serviceValidateURL">https://cas.univ.fr/cas/serviceValidate</parameter>
 
                 <!-- Si utilisation de CAS en mode proxy -->
-                <parameter name="proxyValidateURL">https://cas.utt.fr/cas/proxyValidate</parameter>
+                <parameter name="proxyValidateURL">https://cas.univ.fr/cas/proxyValidate</parameter>
 
                 <!-- variable contenant le nom du service dans l'URL -->
                 <parameter name="serviceKey">service</parameter>
 
                 <!-- URL de logout de CAS -->
                 <parameter name="logoutURL">
-                    https://cas.utt.fr/cas/logout?service=https://nuxeo-dev.utt.fr/nuxeo/site/automation
+                    https://cas.univ.fr/cas/logout?service=https://server.univ.fr/nuxeo/site/automation
                 </parameter>
             </parameters>
         </authentificationPlugin>
