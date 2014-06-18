@@ -1,0 +1,102 @@
+<div class="myContainer">
+    <div class="headerContent"><p class="lead"><img src="images/Ulysse.png" tilte="I'm ULYSSE" height="70" width="70">
+        Aide à la Conception des Emplois du Temps</p></div>
+</div>
+<div class="myContainer">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="glyphicon glyphicon-wrench"></i> Outils de conception de l'emploi
+                        du temps</h3>
+                </div>
+                <div class="panel-body">
+                    <form ng-submit="profil()" role="form" accept-charset="utf-8">
+                        <p>
+                            Blablablabla...
+                        </p>
+
+                        <p>
+                            ...
+                        </p>
+
+                        <p>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Profil de formation</label>
+
+                            <div class="col-sm-5">
+                                <select class="form-control" ng-model="selectedProfil"
+                                        ng-options="p.label for p in profils track by p.label">
+                                    <option value="">-Sélection profil obligatoire-</option>
+                                </select>
+                                <input type="hidden" name="resource" value="{{selectedProfil}}">
+                            </div>
+                            <div class="col-sm-3">
+                                <div row>
+                                    <div class="col-xs-8">
+                                        <button type="submit" class="btn btn-small btn-primary"
+                                                title="Aller à la page profil de formation" id="afficher">afficher
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <div ng-show="isLoading">
+                                            <img src="images/loading.gif"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <p>
+                            ...
+                        </p>
+
+                        <p>
+                            Blablablabla...
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="glyphicon glyphicon-hdd"></i> Données de sortie</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        some date out here...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="glyphicon glyphicon-tasks"></i> Suivi de la conception de l'emploi
+                        du temps</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        EDT detail here...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="glyphicon glyphicon-eye-open"></i> Modules de consultation</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        some previews here...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

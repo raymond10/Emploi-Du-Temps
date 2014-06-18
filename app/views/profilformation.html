@@ -1,0 +1,293 @@
+<div class="myContainer">
+    <div class="headerContent"><p class="lead"><img src="images/Ulysse.png" tilte="I'm ULYSSE" height="70" width="70">
+        Vue des UV par Profil de Formation<br/>{{profil.label}}</p></div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lundi</h3>
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr valign="top">
+                        <th ng-repeat="hour in hours" align="center">{{hour.heure}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-model="uvs" ng-repeat="uv in uvs">
+                        <td bgcolor="orange"><b>{{uv.UV}}</b></td>
+                        <td ng-model="uv.Lundi" data-drop="true" class="td" ng-repeat="lun in uv.Lundi" align="center"
+                            jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(lun.h, $index)'}">
+                            <div ng-model="uv.Lundi" ng-show="lun.h" data-drag="true"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index: {{$index}}}"
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{lun.bgcolor}};" ng-click="detailView(uv.UV,lun.h,$index)">
+                                {{lun.h}}
+                            </div>
+                        </td>
+                        <!--<div style="cursor: move; background-color:{{lun.bgcolor}};"></div>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mardi</h3>
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr valign="top">
+                        <th ng-repeat="hour in hours" align="center">{{hour.heure}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="uv in uvs">
+                        <td bgcolor="gray"><b>{{uv.UV}}</b></td>
+                        <td class="td" ng-model="uv.Mardi" data-drop="true" ng-repeat="mar in uv.Mardi" align="center"
+                            jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(mar.h, $index)'}">
+                            <div ng-model="uv.Mardi" ng-show="mar.h" data-drag="true"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index: {{$index}}}"
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{mar.bgcolor}};">
+                                {{mar.h}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mercredi</h3>
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr valign="top">
+                        <th ng-repeat="hour in hours" align="center">{{hour.heure}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="uv in uvs">
+                        <td bgcolor="lightblue"><b>{{uv.UV}}</b></td>
+                        <td class="td" ng-model="uv.Mercredi" data-drop="true" ng-repeat="mer in uv.Mercredi"
+                            align="center" jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(mer.h, $index)'}">
+                            <div ng-model="uv.Mercredi" ng-show="mer.h" data-drag="true"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index: {{$index}}}"
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{mer.bgcolor}};">
+                                {{mer.h}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Jeudi</h3>
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr valign="top">
+                        <th ng-repeat="hour in hours" align="center">{{hour.heure}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="uv in uvs">
+                        <td bgcolor="#D0A9AA"><b>{{uv.UV}}</b></td>
+                        <td class="td" ng-model="uv.Jeudi" data-drop="true" ng-repeat="jeu in uv.Jeudi" align="center"
+                            jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(jeu.h, $index)'}">
+                            <div ng-model="uv.Jeudi" ng-show="jeu.h" data-drag="true"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index: {{$index}}}"
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{jeu.bgcolor}};">
+                                {{jeu.h}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Vendredi</h3>
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr valign="top">
+                        <th ng-repeat="hour in hours" align="center">{{hour.heure}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="uv in uvs">
+                        <td bgcolor="green"><b>{{uv.UV}}</b></td>
+                        <td class="td" ng-model="uv.Vendredi" data-drop="true" ng-repeat="ven in uv.Vendredi"
+                            align="center" jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(ven.h, $index)'}">
+                            <div ng-model="uv.Vendredi" ng-show="ven.h" data-drag="true"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index: {{$index}}}"
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{ven.bgcolor}};">
+                                {{ven.h}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Samedi</h3>
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr valign="top">
+                        <th ng-repeat="hour in hours" align="center">{{hour.heure}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="uv in uvs">
+                        <td bgcolor="#8B7B8B"><b>{{uv.UV}}</b></td>
+                        <td class="td" ng-model="uv.Samedi" data-drop="true" ng-repeat="sam in uv.Samedi" align="center"
+                            jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(sam.h, $index)'}">
+                            <div ng-model="uv.Samedi" ng-show="sam.h" data-drag="true"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index: {{$index}}}"
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{sam.bgcolor}};">
+                                {{sam.h}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br/>
+</div>
+<div class="myContainer">
+    <div class="clear"></div>
+    <div  ng-show="uvs" class="testUv">
+        <h4>
+            <em style="align-content: center">Test de compatibilité des Uvs</em>
+        </h4>
+        <br/>
+        <form ng-submit="lancerTest()" role="form" accept-charset="utf-8">
+            <div class="row">
+                <div class="col-lg-2">
+                    <b>8 UVs maxi:</b>
+                </div>
+                <div class="col-md-3">
+                    <div ng-repeat="uv in uvs" style="display: inline-block; padding: 4px"><input type="checkbox"
+                                                                                                  value={{uv.UV}}>
+                        {{uv.UV}}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-small btn-info"
+                            title="Aller à la page profil de formation" id="TestUv">Tester
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+<br/>
+<div class="clear"></div>
+<!------------------------------------------------------------------>
+<!-- memo d'utilisation de la vue par profil-->
+<!------------------------------------------------------------------>
+<table class="table table-condensed table-bordered">
+    <tr>
+        <td width=138 align="left" bgcolor=#d2e6ff></td>
+        <td width=160 colspan=2 align="center" bgcolor=#d2e6ff><b>Colonne 1</b></td>
+        <td width=160 colspan=2 align="center" bgcolor=#d2e6ff><b>Colonne 2 (UV)</b></td>
+        <td width=560 colspan=8 align="center" bgcolor=#d2e6ff><b>S&eacute;ances dans la semaine</b></td>
+
+    </tr>
+    <tr>
+        <td align="left" bgcolor=#d2e6ff><b>Couleur</b></td>
+        <td width=80 align="center" bgcolor=#ffffea></td>
+        <td width=80 align="left" bgcolor=#88ffbb></td>
+        <td width=80 align="center" bgcolor=#ffffea></td>
+        <td width=80 align="left" bgcolor=orange></td>
+        <td width=70 align="center" bgcolor=#FD91A6></td>
+        <td width=70 align="left" bgcolor=#B4FBAC></td>
+        <td width=70 align="left" bgcolor=#F9FB93></td>
+        <td width=70 align="left" bgcolor=#AAAAAA></td>
+        <td width=70 align="center" bgcolor=#B26675></td>
+        <td width=70 align="left" bgcolor=#81B47B></td>
+        <td width=70 align="left" bgcolor=#B0B268></td>
+        <td width=70 align="left" bgcolor=#999999></td>
+    </tr>
+    <tr>
+        <td align="left" bgcolor=#d2e6ff><b>Etat / Type</b></td>
+        <td align="center" bgcolor=#a0c0ff> UV<br>Non plac&eacute;e</td>
+        <td align="center" bgcolor=#a0c0ff> UV<br>Plac&eacute;e</td>
+        <td align="center" bgcolor=#a0c0ff>Profil unique</td>
+        <td align="center" bgcolor=#a0c0ff>Plusieurs profils</td>
+        <td align="center" bgcolor=#a0c0ff>Cours<br>Valid&eacute;</td>
+        <td align="center" bgcolor=#a0c0ff>TD<br>valid&eacute;</td>
+        <td align="center" bgcolor=#a0c0ff>TP<br>valid&eacute;</td>
+        <td align="center" bgcolor=#a0c0ff>A &eacute;viter<br>valid&eacute;</td>
+        <td align="center" bgcolor=#a0c0ff>Cours<br>brouillon</td>
+        <td align="center" bgcolor=#a0c0ff>TD<br>brouillon</td>
+        <td align="center" bgcolor=#a0c0ff>TP<br>brouillon</td>
+        <td align="center" bgcolor=#a0c0ff>A &eacute;viter<br>brouillon</td>
+    </tr>
+    <tr>
+        <td align="left" bgcolor=#d2e6ff><b>Contenu</b></td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>* si commentaire DME</td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>Nom de l'UV</td>
+        <td colspan=8 align="center" bgcolor=#a0c0ff>
+            Num&eacute;ro de salle (" ---- " si inconnu) ou index de s&eacute;ances li&eacute;es selon affichage choisi
+        </td>
+
+    </tr>
+    <tr>
+        <td align="left" bgcolor=#d2e6ff><b>Survol (Infobulle)</b></td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>Commentaire DME</td>
+        <td align="center" bgcolor=#dddddd></td>
+        <td align="center" bgcolor=#a0c0ff>Liste profils</td>
+        <td colspan=8 align="center" bgcolor=#a0c0ff>D&eacute;tails de la s&eacute;ance</td>
+
+    </tr>
+    <tr>
+        <td align="left" bgcolor=#d2e6ff><b>Clic</b></td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>Formulaire de cr&eacute;ation de nouvelle s&eacute;ance</td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>Lien vers la<br>fiche r&eacute;sum&eacute; de l'UV</td>
+        <td colspan=8 align="center" bgcolor=#a0c0ff>Formulaire de modification de la s&eacute;ance</td>
+    </tr>
+    <tr>
+        <td align="left" bgcolor=#d2e6ff><b>Ctrl+Clic</b></td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>Marquer ou non l'UV comme plac&eacute;e</td>
+        <td colspan=2 align="center" bgcolor=#a0c0ff>Formulaire de gestion de l'UV</td>
+        <td colspan=8 align="center" bgcolor=#a0c0ff>Brouillonner / D&eacute;brouillonner &agrave; la vol&eacute;e</td>
+    </tr>
+
+</table>
+<div class="clear"></div>
+<br/>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    });
+</script>

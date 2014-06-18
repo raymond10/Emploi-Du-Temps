@@ -1,0 +1,80 @@
+<div class="myContainer">
+    <h1>Test des différents 'Drag and Drop' et 'Sortable'</h1>
+    <br/>
+
+    <div class="col-lg-12" id="right">
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th class="col-lg-1"></th>
+                <th class="col-lg-1">Lundi</th>
+                <th class="col-lg-1">Mardi</th>
+                <th class="col-lg-1">Mercredi</th>
+                <th class="col-lg-1">Jeudi</th>
+                <th class="col-lg-1">Vendredi</th>
+                <th class="col-lg-1">Samedi</th>
+                <th class="col-lg-1">Dimanche</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="droping">
+                <td class="myTd" valign="top">IF07</td>
+                <td class="myTd" ng-repeat="s in times" valign="top">
+                    <div class="drag" data-time={{s.time}} data-visitor={{s.visitor}} style="cursor: move;">
+                        <span class="time">{{s.time}}</span>
+                        <span class="visitor">{{s.visitor}}</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="lol">selected id =</p>
+    <br/>
+
+    <div class="clear"></div>
+    <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'valid'}" ng-model="list1"
+         jqyoui-draggable="{animate:true, placeholder:true}" ng-hide="!list1.title">{{list1.title}}
+    </div>
+    <div class="clear"></div>
+    <br/>
+    déposer ici:
+    <div class="thumb" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable
+         style="height:50px; width:200px;">
+        <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2" jqyoui-draggable
+             ng-hide="!list2.title">{{list2.title}}
+        </div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+
+    <h2>Seigneur des anneaux? <em>"Mon précieux?"</em></h2>
+
+    <div class='contentWrapper ng-cloak'>
+        <div class='content'>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <li ng-repeat="item in list3" data-drop="true" ng-model='list3'
+                        jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback(item.title, $index)'}">
+                        <div class="thumbnail" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}"
+                             ng-model="list3" jqyoui-draggable="{index: {{$index}},animate:true}">
+                            <div style="vertical-align: middle; font-size: 35px; font-weight: bold">
+                                {{item.title}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $(".droping").sortable({
+                connectWith: "td",
+                placeholder: "ui-state-highlight"
+            }).disableSelection();
+        });
+    });
+</script>

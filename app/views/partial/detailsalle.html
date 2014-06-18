@@ -1,0 +1,260 @@
+<div class="modal-header">
+    <h3>{{uv}} - Formulaire de modification d'une séance</h3>
+</div>
+<div class="modal-body">
+<form class="form-horizontal" role="form">
+<tabset justified="true" type="tabs">
+<tab heading="Infos générales">
+    <div class="row order-mapping-container">
+        <div class="col-lg-3">
+            Destruction :<br/>
+            <button class="btn btn-danger" ng-click="save()">Détruire cette séance</button>
+        </div>
+        <div class="col-lg-3">
+            Brouillon : Oui<br/>
+            <button class="btn btn-info" ng-click="save()">Oui/Non</button>
+        </div>
+        <div class="col-lg-3">
+            {{uv}} : Nouvelle séance<br/>
+            <button class="btn btn-success" ng-click="save()">Créer une nouvelle séance</button>
+            <br/>
+            <hr/>
+            <button class="btn btn-default" ng-click="save()">Copier cette séance</button>
+            <br/>
+        </div>
+        <div class="col-lg-3">
+            Commentaire séance : <br/>
+            <textarea ng-model="commentaire" cols="30" rows="5"></textarea><br/>
+            <button class="btn btn-primary" ng-click="save()">Enregistrer</button>
+            <br/>
+        </div>
+    </div>
+</tab>
+<tab heading="Type et placement de la séance">
+    <table class="myTable" align="center">
+        <tr>
+            <td width="30%">Type de séance</td>
+            <td width="20%">
+                <select class="form-control" ng-model="selectedSeance"
+                        ng-options="s.sean for s in seances track by s.sean">
+                </select>
+                <input type="hidden" name="resource" value="{{selectedType}}">
+            </td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+        </tr>
+        <tr>
+            <td width="30%"> Effectif de la séance</td>
+            <td width="10%">
+                <input type="text" name="resource" value="{{effectif}}" class="myInput">
+            </td>
+            <td width="10%">
+                &nbsp;&nbsp;
+                <button class="btn-sm btn-default" ng-click="save()"><<</button>
+            </td>
+            <td width="30%">{{effectif}} Etudiants</td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+        </tr>
+        <tr>
+            <td width="30%"> Fréquence de la séance</td>
+            <td width="20%">
+                <select class="form-control" ng-model="selectedFreqSeance"
+                        ng-options="s.sean for s in freqSeances">
+                </select>
+                <input type="hidden" name="resource" value="{{selectedFreqSeance}}">
+            </td>
+            <td width="5%">
+                &nbsp;&nbsp;
+                <button class="btn-sm btn-default" ng-click="save()"><<</button>
+            </td>
+            <td width="30%">Toutes les semaines</td>
+            <td width="10%"></td>
+            <td width="5%"></td>
+        </tr>
+        <tr>
+            <td width="30%"> Jour / Heure début</td>
+            <td width="20%">
+                <select class="form-control" ng-model="selectedjourHeure"
+                        ng-options="s.jour+' '+s.heure for s in jourHeures">
+                </select>
+                <input type="hidden" name="resource" value="{{selectedjourHeure}}">
+            </td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+        </tr>
+        <tr>
+            <td width="30%"> Durée de la séance</td>
+            <td width="5%">
+                <select class="form-control" ng-model="selectedHeure"
+                        ng-options="s.heur for s in heures">
+                </select>
+                <input type="hidden" name="resource" value="{{selectedHeure}}">
+            </td>
+            <td width="5%">
+                &nbsp;&nbsp;H
+            </td>
+            <td width="5%">
+                <select class="form-control" ng-model="selectedMinute"
+                        ng-options="s.min for s in minutes">
+                </select>
+                <input type="hidden" name="resource" value="{{selectedMinute}}">
+            </td>
+            <td width="5%">
+                &nbsp;&nbsp;
+                <button class="btn-sm btn-default" ng-click="save()"><<</button>
+            </td>
+            <td width="50%">{{selectedHeure.heur}}H {{selectedMinute.min}} une fois par semaine</td>
+        </tr>
+        <tr>
+            <td width="30%"> Séance active pour l'EdT de rentrée ?</td>
+            <td width="10%"><input type="radio" name="check" ng-model="check1" value="OUI"> OUI</td>
+            <td width="10%"><input type="radio" name="check" ng-model="check1" value="NON"> NON</td>
+            <td width="10%">
+                <button class="btn-sm btn-default" ng-click="save()"><<</button>
+            </td>
+            <td width="10%">{{check1}}</span></td>
+            <td width="10%"></td>
+        </tr>
+        <tr>
+            <td width="30%"> Séance spécifique pour l'EdT de rentrée uniquement ?</td>
+            <td width="5%"><input type="radio" name="checky" ng-model="check2" value="OUI"> OUI</td>
+            <td width="5%"><input type="radio" name="checky" ng-model="check2" value="NON"> NON</td>
+            <td width="30%">Désactiver la séance pour l'EDT du semestre ?</td>
+            <td width="10%"></td>
+            <td width="5%"></td>
+        </tr>
+        <tr>
+            <td width="30%"> Séance liée</td>
+            <td width="20%">
+                <select class="form-control" ng-model="selectedLiee"
+                        ng-options="s.lie for s in secanceLiees">
+                </select>
+                <input type="hidden" name="resource" value="{{selectedLiee}}">
+            </td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+            <td width="10%"></td>
+        </tr>
+    </table>
+    <br/>
+    <table align="center">
+        <tr>
+            <td>
+                <button class="btn btn-danger" ng-click="save()">Annuler les dernières modifications</button>
+            </td>
+            <td width="30%"></td>
+            <td>
+                <button class="btn btn-success" ng-click="save()">Mettre à jour cette séance</button>
+            </td>
+        </tr>
+    </table>
+</tab>
+<tab heading="Ressources associées">
+    <div class="row order-mapping-container">
+        <div class="col-lg-6">Salle associées : <br/>
+            <li> {{salle}}</li>
+            <hr/>
+            <select class="form-control" ng-model="selectedType"
+                    ng-options="t.label for t in types track by t.label">
+                <option value="">-Sélectionnez un type-</option>
+            </select>
+            <input type="hidden" name="resource" value="{{selectedType}}">
+            <br/>
+            <button class="btn btn-default" ng-click="save()">Ajouter cette salle</button>
+            <br/>
+        </div>
+        <div class="col-lg-6">Intervenants associés :
+            <div ng-model="intervenants" ng-repeat="ini in intervenants">
+                <li>{{ini.inter}}</li>
+            </div>
+            <hr/>
+            Liste des intervenants :<br/>
+            <select class="form-control" multiple ng-multiple="true" ng-model="selectedIntervenants"
+                    ng-options="t.inter for t in intervenants track by t.inter">
+                <option value="">--Intervenants de CM--</option>
+            </select>
+            <br/>
+            <br/>
+            <button class="btn btn-default" ng-click="save()">Ajouter cet(te) intervenat(e)</button>
+            <br/>
+        </div>
+    </div>
+    <hr/>
+    <br/>
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <td width=130>Code couleur des <br>
+                menus d&eacute;roulants :
+            </td>
+            <td width=100 align=center
+                bgcolor="#FFFFEA">ressource disponible
+            </td>
+            <td width=10></td>
+            <td width=190 align=center bgcolor="#FD91A6">ressource
+                d&eacute;j&agrave; occup&eacute;e pour une autre uv
+            </td>
+            <td width=10></td>
+            <td width=190 align=center
+                bgcolor="#B4FBAC">ressource
+                d&eacute;j&agrave; s&eacute;lectionn&eacute;e pour cette
+                s&eacute;ance
+            </td>
+            <td width=10></td>
+            <td width=190 align=center
+                bgcolor="#FF4156">L'intervenant(e) s'est
+                d&eacute;clar&eacute;(e) indisponible
+            </td>
+        </tr>
+    </table>
+</tab>
+<tab heading="Informations et Actions sur l'UV">
+    <div class="row order-mapping-container">
+        <div class="col-lg-4"><b>Actions :</b><br/>
+
+            <div>
+                <pan>UV placéé ?: <b>{{placee}}</b></pan>
+                &nbsp;&nbsp;
+                <pan>
+                    <button class="btn-sm btn-default" ng-click="unPlacee()">{{placeLibelle}}</button>
+                </pan>
+            </div>
+            <br/>
+
+            <div>
+                <textarea ng-model="commentaireUv" cols="40" rows="2"></textarea><br/>
+                <button class="btn btn-primary" ng-click="save()">Enregistrer le commentaire</button>
+            </div>
+        </div>
+        <div class="col-lg-4"><b>Infos uv :</b><br/>
+
+            <div class="row .order-mapping-containera">
+                <div class="col-xs-6">
+                    <div ng-model="effectifs" ng-repeat="eff in effectifs">-{{eff}}</div>
+                    <br/>
+                    <a href="">Vue de l'UV</a>
+                </div>
+                <div class="col-xs-6">
+                    Profils associés :<br/>
+                        <div ng-model="profilsAsso" ng-repeat=" prof in profilsAsso"><li>{{prof}}</li></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">Progression du placement de l'UV IF07<br/>
+        </div>
+    </div>
+</tab>
+</tabset>
+</form>
+</div>
+<div class="modal-footer">
+    <!--
+    <button class="btn btn-primary" ng-click="save()" title="Enregistrer dans le référentiel">Modifier</button>
+    -->
+    <button class="btn btn-warning" ng-click="cancel()" title="annuler et ferme la fenêtre">Fermer</button>
+</div>
