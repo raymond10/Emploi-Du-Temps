@@ -18,7 +18,7 @@
                 <!-- si utilisation du mode proxy -->
                 <parameter name="proxyKey">proxy</parameter>
 
-                <parameter name="appURL">http://server.univ.fr/nuxeo/nxstartup.faces</parameter>
+                <parameter name="appURL">https://server.univ.fr/nuxeo/nxstartup.faces</parameter>
                 <!-- URL de login du serveur CAS -->
                 <parameter name="serviceLoginURL">https://cas.univ.fr/cas/login</parameter>
                 <!-- URL de validation du ticket du serveur CAS -->
