@@ -39,6 +39,10 @@ angular.module('emploiDuTempsApp', [
               templateUrl: 'views/partial/detailsalle.html',
               controller: 'DetailsalleCtrl'
             })
+            .when('/carousselProfil', {
+              templateUrl: 'views/carousselprofil.html',
+              controller: 'CarousselprofilCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
