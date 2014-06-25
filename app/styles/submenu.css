@@ -157,14 +157,6 @@
     }
 }
 
-.container {
-    width: 100%;
-    margin-right: 2px;
-    margin-left: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
 .panel-title {
     font-size: 14px;
 }
@@ -396,6 +388,13 @@ ul li {
     min-height: 180px;
     max-width: 100%;
     font-size: 8;
+}
 
+.container {
+    width: 99%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 

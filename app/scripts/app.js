@@ -14,7 +14,8 @@ angular.module('emploiDuTempsApp', [
     'ui.bootstrap.modal',
     'ui.bootstrap.datepicker',
     'ui.bootstrap.tabs',
-    'ngDragDrop'
+    'ngDragDrop',
+    'ui.bootstrap.accordion'
 ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
