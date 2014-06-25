@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<component name="org.esup.ecm.login">
+
+    <!-- certains composants doivent être chargés avant que ce fichier soit lu car ils contiennent des points d'extension sur l'authentification -->
+    <require>org.nuxeo.ecm.platform.ui.web.auth.defaultConfig</require>
+    <require>org.nuxeo.ecm.platform.ui.web.auth.WebEngineConfig</require>
+    <require>org.nuxeo.ecm.platform.login.Cas2SSO</require>
+    <!-- <require>org.nuxeo.opensocial.OAuthFilter</require> -->
+
+    <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService"
+               point="authenticators">
+        <authenticationPlugin name="CAS2_AUTH">
+            <loginModulePlugin>Trusting_LM</loginModulePlugin>
+            <needStartingURLSaving>true</needStartingURLSaving>
+            <parameters>
+                <!-- variable contenant le ticket dans l'url -->
+                <parameter name="ticketKey">ticket</parameter>
+                <!-- si utilisation du mode proxy -->
+                <parameter name="proxyKey">proxy</parameter>
+
+                <parameter name="appURL">https://server.univ.fr/nuxeo/nxstartup.faces</parameter>
+                <!-- URL de login du serveur CAS -->
+                <parameter name="serviceLoginURL">https://cas.univ.fr/cas/login</parameter>
+                <!-- URL de validation du ticket du serveur CAS -->
+                <parameter name="serviceValidateURL">https://cas.univ.fr/cas/serviceValidate</parameter>
+                <!-- Si utilisation de CAS en mode proxy -->
+                <parameter name="proxyValidateURL">https://cas.univ.fr/cas/proxyValidate</parameter>
+                <!-- variable contenant le nom du service dans l'URL -->
+                <parameter name="serviceKey">service</parameter>
+                <!-- URL de logout de CAS -->
+                <parameter name="logoutURL">https://cas.univ.fr/cas/logout?service=http://server.univ.fr/nuxeo/
+                </parameter>
+            </parameters>
+        </authenticationPlugin>
+
+        <authentificationPlugin name="CMIS_AUTH">
+            <loginModulePlugin>Trusting_LM</loginModulePlugin>
+            <needStartingURLSaving>true</needStartingURLSaving>
+            <parameters>
+                <!-- variable contenant le ticket dans l'url -->
+                <parameter name="ticketKey">ticket</parameter>
+
+                <!-- si utilisation du mode proxy -->
+                <parameter name="proxyKey">ticket</parameter>
+
+                <parameter name="appURL">https://server.univ.fr/nuxeo/site/automation</parameter>
+
+                <!-- URL de login du serveur CAS -->
+                <parameter name="serviceLoginURL">https://cas.univ.fr/cas/login</parameter>
+
+                <!-- URL de validation du ticket du serveur CAS -->
+                <parameter name="serviceValidateURL">https://cas.univ.fr/cas/serviceValidate</parameter>
+
+                <!-- Si utilisation de CAS en mode proxy -->
+                <parameter name="proxyValidateURL">https://cas.univ.fr/cas/proxyValidate</parameter>
+
+                <!-- variable contenant le nom du service dans l'URL -->
+                <parameter name="serviceKey">service</parameter>
+
+                <!-- URL de logout de CAS -->
+                <parameter name="logoutURL">
+                    https://cas.univ.fr/cas/logout?service=https://server.univ.fr/nuxeo/site/automation
+                </parameter>
+            </parameters>
+        </authentificationPlugin>
+
+        <authenticationPlugin name="ANONYMOUS_AUTH_FOR_CAS2" enabled="true"
+                              class="org.nuxeo.ecm.platform.ui.web.auth.cas2.AnonymousAuthenticatorForCAS2">
+            <loginModulePlugin>Trusting_LM</loginModulePlugin>
+        </authenticationPlugin>
+    </extension>
+
+    <!-- chainage de l'authentification : on garde une authentification de type BASIC pour les accès particuliers (RSS/cmis/contentAutomation) -->
+    <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService"
+               point="chain">
+        <authenticationChain>
+            <plugins>
+                <plugin>BASIC_AUTH</plugin>
+                <plugin>TOKEN_AUTH</plugin>
+                <plugin>ANONYMOUS_AUTH_FOR_CAS2</plugin>
+                <plugin>CAS2_AUTH</plugin>
+            </plugins>
+        </authenticationChain>
+    </extension>
+
+    <!-- chaînage d'authentification spécifique pour Nuxeo Drive -->
+    <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService"
+               point="specificChains">
+        <specificAuthenticationChain name="Automation">
+            <urlPatterns>
+                <url>(.*)/automation.*</url>
+            </urlPatterns>
+            <replacementChain>
+                <plugin>BASIC_AUTH</plugin>
+                <plugin>TOKEN_AUTH</plugin>
+                <plugin>ANONYMOUS_AUTH_FOR_CAS2</plugin>
+            </replacementChain>
+        </specificAuthenticationChain>
+
+        <specificAuthenticationChain name="TokenAuth">
+            <headers>
+                <header name="X-Authentication-Token">.*</header>
+            </headers>
+            <replacementChain>
+                <plugin>TOKEN_AUTH</plugin>
+            </replacementChain>
+        </specificAuthenticationChain>
+    </extension>
+</component>
