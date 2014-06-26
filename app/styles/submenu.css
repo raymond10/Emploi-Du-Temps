@@ -398,3 +398,94 @@ ul li {
     padding-right: 2px;
 }
 
+#slides_control > div{
+    height: 900px;
+}
+
+#slides_control {
+    position:absolute;
+    width: 400px;
+    left:50%;
+    top:20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.my-slider {
+    width: 700px;
+    height: 400px;
+    font-size:0;
+    align-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+.my-slider li {
+    box-sizing: border-box;
+    font-size:30px;
+    position:relative;
+    align-content: center;
+}
+.my-slider li div.debug {
+    box-sizing: border-box;
+    position:absolute;
+    bottom:0;
+    height:50px;
+    background:rgba(0,0,0,0.7);
+    color:white;
+    font-size:12px;
+    width:100%;
+    padding:5px;
+    align-content: center;
+    text-align: center;
+}
+.my-slider.standard li {
+    text-align:center;
+    padding:20px;
+    font-size:20px;
+    align-content: center;
+}
+
+.ng-cloak {
+    display:none;
+    align-content: center;
+}
+
+.thumbs {
+    width:450px;
+    text-align:center;
+}
+
+.thumb {
+    display: inline-block;
+    background-size:cover;
+    border:1px solid transparent;
+    margin:2px 4px;
+    width:60px;
+    height:40px;
+    transition: border 0.2s ease-in;
+    cursor:pointer;
+    align-content:center;
+    vertical-align:middle;
+    font-weight: bold
+}
+.is-active {
+    border:1px solid red;
+}
+
+/* override default controls */
+.rn-carousel-control {
+    font-size:50px !important;
+    color:black;
+    opacity: 1;
+}
+.rn-carousel-control.rn-carousel-control-prev {
+    left: 5px;
+}
+.rn-carousel-control.rn-carousel-control-next {
+    right: 5px;
+}
+
+.Mpanel-primary {
+    margin:auto;
+    width: 600px
+}

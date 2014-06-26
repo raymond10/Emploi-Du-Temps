@@ -3,8 +3,8 @@
         Aide à la Conception des Emplois du Temps</p></div>
 </div>
 <div class="myContainer">
-    <div class="row">
-        <div class="col-lg-6">
+    <div class="row order-mapping-container">
+        <div class="col-lg-7">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="glyphicon glyphicon-wrench"></i> Outils de conception de l'emploi
@@ -25,22 +25,36 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Profil de formation</label>
 
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <select class="form-control" ng-model="selectedProfil"
                                         ng-options="p.label for p in profils track by p.label">
                                     <option value="">-Sélection profil obligatoire-</option>
                                 </select>
                                 <input type="hidden" name="resource" value="{{selectedProfil}}">
                             </div>
-                            <div class="col-sm-3">
-                                <div row>
-                                    <div class="col-xs-8">
-                                        <button type="submit" class="btn btn-small btn-primary"
-                                                title="Aller à la page profil de formation" id="afficher">afficher
-                                        </button>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="radio-inline">
+                                            <input type="radio" name="check" ng-model="check1" value="normal"
+                                                   title="Pour écran de plus de 22''"><b
+                                                title="Pour écran de plus de 22''"> 22"+</b>
+                                            <br/>
+                                            <input type="radio" name="check" ng-model="check1" value="carousel"
+                                                   title="Pour écran de moins de 22''"> <b
+                                                title="Pour écran de moins de 22''">22"-</b>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-sm-4">
+                                        <div style="display: inline-block">
+                                            <button type="submit" class="btn btn-small btn-primary"
+                                                    title="Aller à la page profil de formation" id="afficher">afficher
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
                                         <div ng-show="isLoading">
+                                            &nbsp;
                                             <img src="images/loading.gif"/>
                                         </div>
                                     </div>
@@ -48,6 +62,8 @@
                             </div>
                         </div>
                         </p>
+                        <br/>
+
                         <p>
                             ...
                         </p>
@@ -59,20 +75,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="glyphicon glyphicon-hdd"></i> Données de sortie</h3>
                 </div>
                 <div class="panel-body">
                     <p>
-                        some date out here...
+                        some data out here...
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row order-mapping-container">
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">

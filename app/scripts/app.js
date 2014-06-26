@@ -15,7 +15,9 @@ angular.module('emploiDuTempsApp', [
     'ui.bootstrap.datepicker',
     'ui.bootstrap.tabs',
     'ngDragDrop',
-    'ui.bootstrap.accordion'
+    'ui.bootstrap.accordion',
+    'ui.bootstrap.carousel',
+    'angular-carousel'
 ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
@@ -41,7 +43,7 @@ angular.module('emploiDuTempsApp', [
             })
             .when('/carousselProfil', {
               templateUrl: 'views/carousselprofil.html',
-              controller: 'CarousselprofilCtrl'
+              controller: 'carousselProfilCtrl'
             })
             .otherwise({
                 redirectTo: '/'
