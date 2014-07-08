@@ -61,7 +61,7 @@
                             <div ng-model="uv.Mardi" ng-show="mar.h" data-drag="true"
                                  data-jqyoui-options="{revert: 'invalid'}"
                                  jqyoui-draggable="{index: {{$index}}}"
-                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{mar.bgcolor}};">
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{mar.bgcolor}};" ng-click="detailView(uv.UV,mar.h,$index)">
                                 {{mar.h}}
                             </div>
                         </td>
@@ -93,7 +93,7 @@
                             <div ng-model="uv.Mercredi" ng-show="mer.h" data-drag="true"
                                  data-jqyoui-options="{revert: 'invalid'}"
                                  jqyoui-draggable="{index: {{$index}}}"
-                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{mer.bgcolor}};">
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{mer.bgcolor}};" ng-click="detailView(uv.UV,mer.h,$index)">
                                 {{mer.h}}
                             </div>
                         </td>
@@ -121,7 +121,7 @@
                             <div ng-model="uv.Jeudi" ng-show="jeu.h" data-drag="true"
                                  data-jqyoui-options="{revert: 'invalid'}"
                                  jqyoui-draggable="{index: {{$index}}}"
-                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{jeu.bgcolor}};">
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{jeu.bgcolor}};" ng-click="detailView(uv.UV,jeu.h,$index)">
                                 {{jeu.h}}
                             </div>
                         </td>
@@ -149,7 +149,7 @@
                             <div ng-model="uv.Vendredi" ng-show="ven.h" data-drag="true"
                                  data-jqyoui-options="{revert: 'invalid'}"
                                  jqyoui-draggable="{index: {{$index}}}"
-                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{ven.bgcolor}};">
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{ven.bgcolor}};" ng-click="detailView(uv.UV,ven.h,$index)">
                                 {{ven.h}}
                             </div>
                         </td>
@@ -177,7 +177,7 @@
                             <div ng-model="uv.Samedi" ng-show="sam.h" data-drag="true"
                                  data-jqyoui-options="{revert: 'invalid'}"
                                  jqyoui-draggable="{index: {{$index}}}"
-                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{sam.bgcolor}};">
+                                 style="cursor:pointer; width:100%; height:100%;  background-color:{{sam.bgcolor}};" ng-click="detailView(uv.UV,sam.h,$index)">
                                 {{sam.h}}
                             </div>
                         </td>
